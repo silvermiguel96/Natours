@@ -1,27 +1,33 @@
 {
-  "name": "Natours",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "natours",
+  "license": "MIT",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development parcel index.html ",
+    "build": "cross-env NODE_ENV=production parcel build index.html --public-url /natours/",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d natours"
+  },
+  "homepage": "https://github.com/ocampoaleja/natours",
   "dependencies": {
-    "debug-log": "^2.0.0",
-    "node-sass": "^4.11.0"
+    "autoprefixer": "^7.2.1",
+    "gh-pages": "^1.1.0",
+    "parcel-bundler": "^1.4.1"
+  },
+  "postcss": {
+    "modules": false,
+    "plugins": {
+      "autoprefixer": {
+        "browsers": [
+          ">1%",
+          "last 4 versions",
+          "Firefox ESR",
+          "not ie < 9"
+        ],
+        "flexbox": "no-2009"
+      }
+    }
   },
   "devDependencies": {
-    "cssnano": "^4.1.10"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ocampoaleja/Natours.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ocampoaleja/Natours/issues"
-  },
-  "homepage": "https://github.com/ocampoaleja/Natours#readme"
+    "cross-env": "^5.1.1"
+  }
 }
