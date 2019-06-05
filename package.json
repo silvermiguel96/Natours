@@ -2,12 +2,14 @@
   "name": "natours",
   "license": "MIT",
   "scripts": {
-    "start": "parcel index.html",
-    "predeploy": "rm -rf dist && parcel build index.html",
-    "deploy": "gh-pages -d dist"
+    "start": "cross-env NODE_ENV=development parcel index.html ",
+    "build": "cross-env NODE_ENV=production parcel build index.html --public-url /natours/",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d natours"
   },
   "homepage": "https://github.com/ocampoaleja/natours",
   "dependencies": {
+    "autoprefixer": "^7.2.1",
     "gh-pages": "^1.1.0",
     "parcel-bundler": "^1.4.1"
   },
@@ -26,9 +28,6 @@
     }
   },
   "devDependencies": {
-    "autoprefixer": "^7.2.6",
-    "cross-env": "^5.1.1",
-    "parcel": "^1.12.3",
-    "sass": "^1.20.3"
+    "cross-env": "^5.1.1"
   }
 }
